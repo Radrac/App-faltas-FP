@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f5f5fa">
+<title>Faltas · SMX-1</title>
+<link rel="manifest" href="manifest.json">
+<style>
+:root{--bg:#f5f5fa;--card:#fff;--ink:#171821;--muted:#777987;--blue:#3978f6;--purple:#8d73e8;--line:#e7e7ef;--green:#22a06b;--amber:#d98b16;--red:#df4b55}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+.app{max-width:520px;margin:auto;padding:18px 16px 92px}.top{display:flex;align-items:center;justify-content:space-between;margin:6px 2px 20px}.eyebrow{font-size:12px;color:var(--muted);letter-spacing:1.5px;font-weight:700}.top h1{font-size:30px;letter-spacing:-1px;margin:4px 0 0}.pill{background:#e8e3ff;color:#6346c5;border-radius:20px;padding:8px 11px;font-size:12px;font-weight:700}
+.hero{background:linear-gradient(135deg,#1f263b,#343c5b);color:white;border-radius:28px;padding:22px;box-shadow:0 12px 30px #1d25401b}.hero small{color:#c8cee1;font-weight:600}.hero-num{display:flex;align-items:baseline;gap:8px;margin:10px 0}.hero-num strong{font-size:49px;letter-spacing:-2px}.hero-num span{color:#c8cee1;font-size:14px}.hero-foot{display:flex;justify-content:space-between;gap:10px;margin-top:17px}.mini{background:#ffffff13;border:1px solid #ffffff16;padding:11px 12px;border-radius:16px;flex:1}.mini b{display:block;font-size:17px}.mini span{font-size:11px;color:#c8cee1}
+.section-head{display:flex;justify-content:space-between;align-items:center;margin:25px 3px 12px}.section-head h2{font-size:18px;margin:0;letter-spacing:-.4px}.sub{font-size:12px;color:var(--muted)}
+.card{background:var(--card);border:1px solid #ececf3;border-radius:22px;padding:16px;margin-bottom:11px;box-shadow:0 4px 15px #25254a06}.subject-top{display:flex;justify-content:space-between;align-items:center;gap:12px}.subject-name{font-size:15px;font-weight:750}.subject-code{font-size:11px;color:var(--muted);margin-top:3px}.pct{font-size:20px;font-weight:800;letter-spacing:-.5px}.bar{height:7px;background:#eeedf5;border-radius:9px;overflow:hidden;margin:13px 0 10px}.fill{height:100%;border-radius:9px;background:var(--green);transition:width .2s}.stats{display:flex;gap:0;justify-content:space-between;font-size:12px;color:var(--muted)}.stats b{color:var(--ink)}.risk{font-size:11px;font-weight:750;padding:6px 8px;border-radius:9px;background:#e5f7ee;color:#15754d}.risk.warn{background:#fff2d9;color:#9c5b00}.risk.danger{background:#ffe8e9;color:#b52e3a}
+.tabs{position:fixed;bottom:0;left:0;right:0;background:#ffffffed;backdrop-filter:blur(18px);border-top:1px solid #e8e8ef;display:flex;justify-content:center;padding:9px 12px calc(9px + env(safe-area-inset-bottom));z-index:4}.tabwrap{max-width:520px;width:100%;display:flex;justify-content:space-around}.tab{border:0;background:none;color:#9293a1;font-size:11px;font-weight:650;display:flex;flex-direction:column;align-items:center;gap:4px;padding:5px 12px}.tab .ico{font-size:20px}.tab.active{color:var(--blue)}
+.view{display:none}.view.active{display:block}
+.btn{border:0;border-radius:14px;background:var(--blue);color:white;font-weight:750;padding:12px 15px;font-size:14px;cursor:pointer}.btn.secondary{background:#f0eff8;color:#33344a}.btn.danger{background:#ffe8e9;color:#b52e3a}.btn.small{padding:9px 11px;font-size:12px}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+label{display:block;font-size:12px;color:var(--muted);font-weight:650;margin:12px 0 6px}input,select{width:100%;border:1px solid #e1e1eb;background:#fafaff;border-radius:13px;padding:12px;font:inherit;color:var(--ink);outline:none}input:focus,select:focus{border-color:#8daeff}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.notice{font-size:12px;line-height:1.5;color:var(--muted);background:#f0eff8;border-radius:14px;padding:12px;margin-top:12px}.alert{padding:12px;border-radius:15px;margin:8px 0;font-size:13px;line-height:1.45;background:#fff2d9;color:#805000}.alert.red{background:#ffe8e9;color:#9c2430}.alert.green{background:#e4f7ed;color:#166a47}
+.listrow{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}.listrow:last-child{border-bottom:0}.listrow strong{font-size:14px}.listrow small{display:block;color:var(--muted);margin-top:3px;font-size:11px}
+.empty{color:var(--muted);font-size:13px;padding:10px 0}.footer{text-align:center;color:#999aaa;font-size:10px;margin:22px 0 5px}
+.modal{position:fixed;inset:0;background:#15172766;display:none;align-items:flex-end;justify-content:center;z-index:9;padding:12px}.modal.open{display:flex}.sheet{background:white;border-radius:26px 26px 18px 18px;padding:22px;width:100%;max-width:500px;max-height:85vh;overflow:auto}.sheet h2{margin:0 0 5px;font-size:22px}.xbtn{float:right;border:0;border-radius:50%;width:32px;height:32px;background:#f0eff8;font-size:18px}
+</style>
+</head>
+<body>
+<div class="app">
+ <header class="top"><div><div class="eyebrow">TU CURSO · 2026—27</div><h1>Control de faltas</h1></div><span class="pill">SMX · 1.º</span></header>
+ <section class="view active" id="view-home">
+  <div class="hero"><small>FALTAS REGISTRADAS</small><div class="hero-num"><strong id="totalAbs">0</strong><span>sesiones</span></div><div id="heroMessage">Empieza registrando las faltas que ya tienes.</div><div class="hero-foot"><div class="mini"><b id="riskCount">0</b><span>asignaturas en aviso</span></div><div class="mini"><b id="remainingTotal">—</b><span>faltas aprox. restantes</span></div></div></div>
+  <div class="section-head"><h2>Asignaturas</h2><span class="sub">Límite orientativo: 15%</span></div>
+  <div id="subjectCards"></div>
+  <div class="notice">Los porcentajes se calculan con las sesiones previstas desde el inicio del curso hasta la fecha final configurada. Revisa el porcentaje oficial de tu centro: las reglas pueden variar.</div>
+ </section>
+ <section class="view" id="view-register">
+  <div class="section-head"><h2>Registrar una falta</h2><span class="sub">Se guarda en este móvil</span></div>
+  <div class="card">
+   <label for="subSelect">Asignatura</label><select id="subSelect"></select>
+   <div class="grid2"><div><label for="absDate">Fecha</label><input id="absDate" type="date"></div><div><label for="absCount">Sesiones faltadas</label><input id="absCount" type="number" min="1" max="8" value="1"></div></div>
+   <label for="absNote">Nota (opcional)</label><input id="absNote" placeholder="Ej. llegué tarde / justificante">
+   <div class="actions"><button class="btn" id="saveAbs">Guardar falta</button><button class="btn secondary" id="markToday">Poner hoy</button></div>
+  </div>
+  <div class="section-head"><h2>Últimos registros</h2><span class="sub" id="recordCount">0 registros</span></div><div class="card" id="records"></div>
+ </section>
+ <section class="view" id="view-plan">
+  <div class="section-head"><h2>¿Qué clases me puedo permitir?</h2></div>
+  <div class="card"><div style="font-size:14px;font-weight:750">Semáforo de riesgo</div><p class="sub" style="line-height:1.5">Compara tus faltas actuales con el margen matemático disponible. No puede saber si una falta concreta te perjudicará en prácticas, exámenes o evaluación.</p><div class="actions"><button class="btn secondary" id="refreshPlan">Actualizar análisis</button></div></div>
+  <div id="planList"></div>
+  <div class="notice">No existe una clase universalmente “rentable” de saltarse: una asignatura con pocas faltas disponibles puede ser prioritaria, aunque tenga un porcentaje bajo. Confirma con tutoría el umbral real y si cuentan retrasos o faltas justificadas.</div>
+ </section>
+ <section class="view" id="view-settings">
+  <div class="section-head"><h2>Ajustes</h2></div>
+  <div class="card">
+   <label for="startDate">Inicio del curso</label><input type="date" id="startDate" value="2026-09-14">
+   <label for="endDate">Fin del periodo de cálculo</label><input type="date" id="endDate" value="2027-06-18">
+   <div class="grid2"><div><label for="warnPct">Aviso al llegar a (%)</label><input id="warnPct" type="number" min="1" max="30" value="10"></div><div><label for="dangerPct">Alerta vibración (%)</label><input id="dangerPct" type="number" min="1" max="100" value="15"></div></div>
+   <label for="weeklyMode">Calcular clases</label><select id="weeklyMode"><option value="timetable">Según horario SMX-1</option><option value="manual">Usar total de sesiones manual</option></select>
+   <div class="notice">El horario inicial está precargado a partir de la imagen que enviaste. Puedes cambiar el número de sesiones previstas de cada asignatura desde “Editar asignaturas”.</div>
+   <div class="actions"><button class="btn" id="saveSettings">Guardar ajustes</button><button class="btn secondary" id="notifyBtn">Activar avisos</button></div>
+  </div>
+  <div class="section-head"><h2>Editar asignaturas</h2></div><div class="card" id="editSubjects"></div>
+  <div class="card"><div style="font-weight:750">Datos y copia de seguridad</div><div class="sub" style="margin:6px 0 10px">Los datos se guardan localmente en el navegador de este dispositivo.</div><div class="actions"><button class="btn secondary" id="exportBtn">Exportar copia</button><button class="btn secondary" id="importBtn">Importar copia</button><button class="btn danger" id="resetBtn">Borrar todos los datos</button></div><input type="file" id="importFile" accept="application/json" hidden></div>
+ </section>
+ <div class="footer">Control de faltas · cálculo orientativo, no oficial</div>
+</div>
+<nav class="tabs"><div class="tabwrap">
+ <button class="tab active" data-view="home"><span class="ico">⌂</span>Resumen</button><button class="tab" data-view="register"><span class="ico">＋</span>Registrar</button><button class="tab" data-view="plan"><span class="ico">◷</span>Plan</button><button class="tab" data-view="settings"><span class="ico">⚙</span>Ajustes</button>
+</div></nav>
+<div class="modal" id="editModal"><div class="sheet"><button class="xbtn" id="closeModal">×</button><h2 id="editTitle">Editar asignatura</h2><p class="sub">Ajusta las sesiones semanales si el horario cambia.</p><label>Nombre</label><input id="editName"><label>Código</label><input id="editCode"><label>Sesiones por semana</label><input id="editWeekly" type="number" min="0" max="30"><div class="actions"><button class="btn" id="saveSubject">Guardar cambios</button></div></div></div>
+<script>
+const defaultSubjects=[
+ {id:'ang',name:'Anglès',code:'ANG',weekly:3,absences:0},
+ {id:'mme',name:'Muntatge i manteniment',code:'MME',weekly:4,absences:0},
+ {id:'som',name:'Sistemes operatius monopuesto',code:'SOM',weekly:4,absences:0},
+ {id:'xl',name:'Xarxes locals',code:'XL',weekly:5,absences:0},
+ {id:'ipo',name:'Itinerari personal per a l’ocupabilitat',code:'IPO',weekly:2,absences:0},
+ {id:'tutoria',name:'Tutoria',code:'TUTORIA',weekly:1,absences:0},
+ {id:'ao',name:'Aplicacions ofimàtiques',code:'AO',weekly:5,absences:0},
+ {id:'digit',name:'Digitalització',code:'DIGIT',weekly:1,absences:0}
+];
+const KEY='controlFaltasSMX_v1';
+let data={subjects:defaultSubjects,records:[],settings:{start:'2026-09-14',end:'2027-06-18',warn:10,danger:15,notify:false},editId:null};
+function load(){try{let d=JSON.parse(localStorage.getItem(KEY));if(d&&d.subjects&&d.records)data={...data,...d,settings:{...data.settings,...d.settings}}}catch(e){}}
+function persist(){localStorage.setItem(KEY,JSON.stringify(data))}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function dayCount(start,end){let a=new Date(start+'T12:00:00'),b=new Date(end+'T12:00:00');if(isNaN(a)||isNaN(b)||b<a)return 0;let n=0;for(let d=new Date(a);d<=b;d.setDate(d.getDate()+1)){if(d.getDay()>0&&d.getDay()<6)n++}return n}
+function schoolWeeks(){return dayCount(data.settings.start,data.settings.end)/5}
+function planned(s){if(document.getElementById('weeklyMode')?.value==='manual'&&s.totalSessions>0)return s.totalSessions;return Math.max(0,Math.round(s.weekly*schoolWeeks()))}
+function abs(s){return data.records.filter(r=>r.subjectId===s.id).reduce((n,r)=>n+Number(r.count||1),0)}
+function pct(s){let total=planned(s);return total?abs(s)/total*100:0}
+function remaining(s){return Math.max(0,Math.ceil((Number(data.settings.danger)/100)*planned(s))-1-abs(s))}
+function state(s){let p=pct(s);if(p>=Number(data.settings.danger))return ['danger','LÍMITE ALCANZADO'];if(p>=Number(data.settings.warn))return ['warn','CERCA DEL LÍMITE'];return ['ok','EN MARGEN']}
+function fmt(n){return Number(n).toLocaleString('es-ES',{maximumFractionDigits:1})}
+function notifyCrossings(oldStates){data.subjects.forEach(s=>{let p=pct(s),old=oldStates?.[s.id]??0;if(p>=Number(data.settings.danger)&&old<Number(data.settings.danger)){if(navigator.vibrate)navigator.vibrate([250,120,250,120,450]);sendNotification('¡Límite de faltas alcanzado',`${s.code}: ${p.toFixed(1)}% de faltas. Revisa tu situación.`)}else if(p>=Number(data.settings.warn)&&old<Number(data.settings.warn)){sendNotification('Aviso de faltas',`${s.code} ha llegado al ${p.toFixed(1)}%. Te queda poco margen.`)}})}
+function oldPcts(){let o={};data.subjects.forEach(s=>o[s.id]=pct(s));return o}
+function sendNotification(title,body){if(data.settings.notify&&'Notification'in window&&Notification.permission==='granted'){try{new Notification(title,{body,icon:'icon.svg',vibrate:[250,100,250]})}catch(e){}}}
+function render(){
+ document.getElementById('totalAbs').textContent=data.records.reduce((n,r)=>n+Number(r.count||1),0);
+ let warn=data.subjects.filter(s=>pct(s)>=Number(data.settings.warn)).length;
+ document.getElementById('riskCount').textContent=warn;
+ document.getElementById('remainingTotal').textContent=data.subjects.reduce((n,s)=>n+remaining(s),0);
+ document.getElementById('heroMessage').textContent=warn?`${warn} asignatura(s) necesitan atención. Revisa el margen antes de faltar.`:'Vas bien: revisa el margen antes de decidir faltar.';
+ document.getElementById('subjectCards').innerHTML=data.subjects.map(s=>{let p=pct(s),[cl,label]=state(s),pl=planned(s);return `<div class="card"><div class="subject-top"><div><div class="subject-name">${esc(s.name)}</div><div class="subject-code">${esc(s.code)} · ${abs(s)} faltas de ${pl} sesiones previstas</div></div><div class="pct">${fmt(p)}%</div></div><div class="bar"><div class="fill" style="width:${Math.min(100,p)}%;background:${cl==='danger'?'var(--red)':cl==='warn'?'var(--amber)':'var(--green)'}"></div></div><div class="stats"><span><b>${remaining(s)}</b> faltas aprox. hasta el 15%</span><span class="risk ${cl==='ok'?'':cl}">${label}</span></div></div>`}).join('');
+ document.getElementById('subSelect').innerHTML=data.subjects.map(s=>`<option value="${s.id}">${esc(s.code)} — ${esc(s.name)}</option>`).join('');
+ renderRecords();renderPlan();renderEditors();
+}
+function renderRecords(){let el=document.getElementById('records');document.getElementById('recordCount').textContent=`${data.records.length} registros`;let rs=[...data.records].sort((a,b)=>b.date.localeCompare(a.date));el.innerHTML=rs.length?rs.slice(0,30).map(r=>{let s=data.subjects.find(s=>s.id===r.subjectId);return `<div class="listrow"><div><strong>${esc(s?.code||'Asignatura eliminada')} · ${r.count} falta(s)</strong><small>${esc(r.date)}${r.note?' · '+esc(r.note):''}</small></div><button class="btn small danger" onclick="deleteRecord('${r.id}')">Borrar</button></div>`}).join(''):'<div class="empty">Aún no has registrado ninguna falta.</div>'}
+function renderPlan(){let el=document.getElementById('planList');let arr=[...data.subjects].sort((a,b)=>remaining(a)-remaining(b));el.innerHTML=arr.map(s=>{let p=pct(s),[cl,label]=state(s),r=remaining(s);let msg=p>=Number(data.settings.danger)?'No añadas faltas sin hablar con tutoría.':p>=Number(data.settings.warn)?'Prioridad alta: evita faltar salvo necesidad.':r<=2?'Margen muy pequeño: guarda las faltas para imprevistos.':'Tienes más margen relativo, pero cada ausencia cuenta.';return `<div class="card"><div class="subject-top"><div><div class="subject-name">${esc(s.code)} — ${esc(s.name)}</div><div class="sub">${abs(s)} faltas · ${planned(s)} sesiones previstas</div></div><span class="risk ${cl==='ok'?'':cl}">${r} restantes aprox.</span></div><div class="bar"><div class="fill" style="width:${Math.min(100,p)}%;background:${cl==='danger'?'var(--red)':cl==='warn'?'var(--amber)':'var(--green)'}"></div></div><div style="font-size:13px;line-height:1.45">${msg}</div></div>`}).join('')}
+function renderEditors(){document.getElementById('editSubjects').innerHTML=data.subjects.map(s=>`<div class="listrow"><div><strong>${esc(s.code)}</strong><small>${esc(s.name)} · ${s.weekly} sesiones/semana</small></div><button class="btn small secondary" onclick="editSubject('${s.id}')">Editar</button></div>`).join('')}
+window.deleteRecord=id=>{if(!confirm('¿Borrar este registro?'))return;let old=oldPcts();data.records=data.records.filter(r=>r.id!==id);persist();render()};
+window.editSubject=id=>{let s=data.subjects.find(x=>x.id===id);if(!s)return;data.editId=id;document.getElementById('editTitle').textContent='Editar '+s.code;document.getElementById('editName').value=s.name;document.getElementById('editCode').value=s.code;document.getElementById('editWeekly').value=s.weekly;document.getElementById('editModal').classList.add('open')};
+document.getElementById('closeModal').onclick=()=>document.getElementById('editModal').classList.remove('open');
+document.getElementById('saveSubject').onclick=()=>{let s=data.subjects.find(x=>x.id===data.editId);if(!s)return;s.name=document.getElementById('editName').value.trim()||s.name;s.code=document.getElementById('editCode').value.trim()||s.code;s.weekly=Math.max(0,Number(document.getElementById('editWeekly').value)||0);persist();document.getElementById('editModal').classList.remove('open');render()};
+document.getElementById('saveAbs').onclick=()=>{let sid=document.getElementById('subSelect').value,date=document.getElementById('absDate').value,count=Math.max(1,Math.floor(Number(document.getElementById('absCount').value)||1));if(!date){alert('Elige una fecha.');return}let old=oldPcts();data.records.push({id:Date.now().toString(36)+Math.random().toString(36).slice(2,6),subjectId:sid,date,count,note:document.getElementById('absNote').value.trim()});persist();render();notifyCrossings(old);document.getElementById('absNote').value='';document.getElementById('absCount').value=1;alert('Falta guardada.')};
+document.getElementById('markToday').onclick=()=>document.getElementById('absDate').value=new Date().toLocaleDateString('en-CA');
+document.getElementById('saveSettings').onclick=()=>{let old=data.settings;data.settings={...old,start:document.getElementById('startDate').value,end:document.getElementById('endDate').value,warn:Math.max(1,Number(document.getElementById('warnPct').value)||10),danger:Math.max(1,Number(document.getElementById('dangerPct').value)||15),notify:old.notify};persist();render();alert('Ajustes guardados.')};
+document.getElementById('notifyBtn').onclick=async()=>{if(!('Notification'in window)){alert('Este navegador no permite notificaciones. Instala la app desde Chrome o prueba otro navegador.');return}let p=await Notification.requestPermission();data.settings.notify=p==='granted';persist();alert(p==='granted'?'Avisos activados. Para alertas en segundo plano hace falta soporte del navegador y la app instalada.':'No se han concedido permisos de notificación.')};
+document.getElementById('refreshPlan').onclick=renderPlan;
+document.getElementById('exportBtn').onclick=()=>{let b=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='copia-control-faltas.json';a.click();URL.revokeObjectURL(a.href)};
+document.getElementById('importBtn').onclick=()=>document.getElementById('importFile').click();
+document.getElementById('importFile').onchange=e=>{let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{try{let d=JSON.parse(r.result);if(!d.subjects||!d.records)throw 0;data=d;persist();render();alert('Copia importada.')}catch(x){alert('El archivo no parece una copia válida.')}};r.readAsText(f)};
+document.getElementById('resetBtn').onclick=()=>{if(confirm('¿Borrar todos los registros y volver a los valores iniciales?')){localStorage.removeItem(KEY);data={subjects:defaultSubjects.map(s=>({...s})),records:[],settings:{start:'2026-09-14',end:'2027-06-18',warn:10,danger:15,notify:false}};persist();render()}};
+document.querySelectorAll('.tab').forEach(b=>b.onclick=()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x===b));document.querySelectorAll('.view').forEach(x=>x.classList.toggle('active',x.id==='view-'+b.dataset.view));window.scrollTo({top:0,behavior:'smooth'})});
+function init(){load();document.getElementById('startDate').value=data.settings.start;document.getElementById('endDate').value=data.settings.end;document.getElementById('warnPct').value=data.settings.warn;document.getElementById('dangerPct').value=data.settings.danger;document.getElementById('absDate').value=new Date().toLocaleDateString('en-CA');render()}
+init();
+if('serviceWorker'in navigator && location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
+</script>
+</body></html>

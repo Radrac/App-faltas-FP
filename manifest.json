@@ -1,0 +1,10 @@
+{
+  "name": "Control de faltas SMX-1",
+  "short_name": "Mis faltas",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#f5f5fa",
+  "theme_color": "#f5f5fa",
+  "description": "Calculadora personal de faltas y margen por asignatura",
+  "icons": []
+}

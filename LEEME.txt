@@ -1,0 +1,16 @@
+CONTROL DE FALTAS · SMX-1
+
+Qué incluye:
+- Panel estilo iPhone para Android, con resumen por asignatura.
+- Registro manual de faltas por fecha, asignatura y número de sesiones.
+- Porcentaje aproximado y margen hasta el umbral configurado.
+- Aviso al 10% y vibración al cruzar el 15% cuando la app está abierta y el navegador lo permite.
+- Exportar/importar copia de seguridad.
+- Horario inicial precargado según la imagen enviada; sesiones semanales editables.
+
+IMPORTANTE:
+1. Es una app web instalable (PWA), no un APK nativo.
+2. Para instalarla como app: publica la carpeta en un hosting HTTPS (por ejemplo GitHub Pages/Netlify), abre la URL en Chrome Android > menú ⋮ > "Añadir a pantalla de inicio" o "Instalar app".
+3. Las notificaciones y vibración dependen de los permisos y del navegador. En esta versión, los cruces se detectan al registrar faltas/actualizar la app; no garantiza alertas con la app cerrada. Para alarmas fiables en segundo plano haría falta una app Android nativa con permisos/servicio apropiados.
+4. Los porcentajes son estimaciones. La app cuenta lunes-viernes dentro del rango configurado y multiplica por las sesiones semanales editables; no descuenta automáticamente vacaciones, festivos, días no lectivos ni cambios de horario. Confirma el criterio oficial con el centro.
+5. El análisis "Plan" es una comparación matemática del margen, no una recomendación para faltar a clase. También pueden contar las normas de evaluación, prácticas y faltas justificadas.
